@@ -9,7 +9,7 @@ process_resident_memory_bytes 483266560.0
 process_start_time_seconds 1748457897.19
 # HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.
 # TYPE process_cpu_seconds_total counter
-process_cpu_seconds_total 5.21
+process_cpu_seconds_total 6.15
 # HELP process_open_fds Number of open file descriptors.
 # TYPE process_open_fds gauge
 process_open_fds 13.0
