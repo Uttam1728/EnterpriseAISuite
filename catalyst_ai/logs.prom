@@ -1,0 +1,50 @@
+# HELP process_virtual_memory_bytes Virtual memory size in bytes.
+# TYPE process_virtual_memory_bytes gauge
+process_virtual_memory_bytes 1008214016.0
+# HELP process_resident_memory_bytes Resident memory size in bytes.
+# TYPE process_resident_memory_bytes gauge
+process_resident_memory_bytes 483151872.0
+# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.
+# TYPE process_start_time_seconds gauge
+process_start_time_seconds 1748457097.79
+# HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.
+# TYPE process_cpu_seconds_total counter
+process_cpu_seconds_total 3.68
+# HELP process_open_fds Number of open file descriptors.
+# TYPE process_open_fds gauge
+process_open_fds 13.0
+# HELP process_max_fds Maximum number of open file descriptors.
+# TYPE process_max_fds gauge
+process_max_fds 1048576.0
+# HELP python_info Python platform information
+# TYPE python_info gauge
+python_info{implementation="CPython",major="3",minor="10",patchlevel="12",version="3.10.12"} 1.0
+# HELP catalyst_http_requests_total Total number of HTTP requests
+# TYPE catalyst_http_requests_total counter
+# HELP catalyst_http_request_duration_seconds HTTP request duration in seconds
+# TYPE catalyst_http_request_duration_seconds histogram
+# HELP catalyst_active_requests Number of active requests
+# TYPE catalyst_active_requests gauge
+# HELP catalyst_request_size_bytes Request size in bytes
+# TYPE catalyst_request_size_bytes histogram
+# HELP catalyst_response_size_bytes Response size in bytes
+# TYPE catalyst_response_size_bytes histogram
+# HELP catalyst_errors_total Total number of errors
+# TYPE catalyst_errors_total counter
+# HELP catalyst_token_usage_total Total number of tokens used
+# TYPE catalyst_token_usage_total counter
+# HELP catalyst_exceptions_total Total number of exceptions
+# TYPE catalyst_exceptions_total counter
+# HELP catalyst_global_exceptions_total Total number of exceptions across the entire application
+# TYPE catalyst_global_exceptions_total counter
+catalyst_global_exceptions_total 0.0
+# HELP catalyst_active_streams Number of active streaming responses
+# TYPE catalyst_active_streams gauge
+# HELP catalyst_stream_chunks_total Total number of chunks sent in streaming responses
+# TYPE catalyst_stream_chunks_total counter
+# HELP catalyst_stream_bytes_total Total bytes sent in streaming responses
+# TYPE catalyst_stream_bytes_total counter
+# HELP catalyst_stream_duration_seconds Duration of streaming responses in seconds
+# TYPE catalyst_stream_duration_seconds histogram
+# HELP catalyst_stream_errors_total Total number of errors in streaming responses
+# TYPE catalyst_stream_errors_total counter

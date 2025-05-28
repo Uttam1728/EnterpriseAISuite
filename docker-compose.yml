@@ -1,0 +1,63 @@
+services:
+  catalyst:
+    build:
+      context: ./catalyst_ai
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    environment:
+      - ENVIRONMENT=docker
+    volumes:
+      - ./catalyst_ai:/srv/catalyst
+      - catalyst-repos:/srv/catalyst/repos
+      - ./service-config.yaml:/srv/catalyst/service-config.yaml
+    depends_on:
+      - locksmith
+    networks:
+      - app-network
+
+  locksmith:
+    build:
+      context: ./locksmith
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8082"
+    environment:
+      - PORT=8082
+      - ENVIRONMENT=docker
+      - HOST=0.0.0.0
+    volumes:
+      - locksmith-repos:/srv/locksmith/repos
+    networks:
+      - app-network
+    profiles:
+      - locksmith
+
+  wayne:
+    build:
+      context: ./wayne
+      dockerfile: Dockerfile
+    ports:
+      - "8083:8083"
+    environment:
+      - PORT=8083
+      - ENVIRONMENT=docker
+      - HOST=0.0.0.0
+    volumes:
+      - wayne-repos:/srv/wayne/repos
+    depends_on:
+      - catalyst
+      - locksmith
+    networks:
+      - app-network
+    profiles:
+      - wayne
+
+volumes:
+  catalyst-repos:
+  wayne-repos:
+  locksmith-repos:
+
+networks:
+  app-network:
+    driver: bridge
