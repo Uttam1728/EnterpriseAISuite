@@ -11,10 +11,10 @@ services:
       - ./catalyst_ai:/srv/catalyst
       - catalyst-repos:/srv/catalyst/repos
       - ./service-config.yaml:/srv/catalyst/service-config.yaml
-    depends_on:
-      - locksmith
     networks:
       - app-network
+    profiles:
+      - catalyst
 
   locksmith:
     build:
@@ -45,9 +45,6 @@ services:
       - HOST=0.0.0.0
     volumes:
       - wayne-repos:/srv/wayne/repos
-    depends_on:
-      - catalyst
-      - locksmith
     networks:
       - app-network
     profiles:

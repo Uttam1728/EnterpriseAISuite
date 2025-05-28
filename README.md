@@ -23,6 +23,25 @@
   <a href="#license">License</a>
 </p>
 
+## 📚 Table of Contents
+
+- [Overview](#overview)
+- [Architecture](#architecture)
+- [Project Structure](#project-structure)
+- [Features](#features)
+- [Technical Stack](#technical-stack)
+- [Installation](#installation)
+- [Deployment](#deployment)
+- [Configuration](#configuration)
+- [Community](#community)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+- [Documentation](#documentation)
+- [FAQs](#faqs)
+- [Security Considerations](#security-considerations)
+- [Performance Tips](#performance-tips)
+
 ## 📋 Overview
 
 Enterprise AI Suite is a robust, production-ready platform for building and deploying AI applications. It provides a flexible architecture for integrating multiple large language models (LLMs) and tools into a unified interface, enabling developers to create sophisticated AI solutions with features like conversation management, authentication, and monitoring out of the box.
@@ -300,6 +319,40 @@ Then visit `http://localhost:8081` in your browser.
 
 > **💡 Tip:** For development environments, use the `--debug` flag when starting each service to enable hot reloading and detailed error messages.
 
+# Docker Compose Setup
+
+This project uses Docker Compose to manage multiple services. You can control which services to start using Docker Compose profiles.
+
+## Starting Services with Profiles
+
+To start specific services, use the `--profile` option with `docker-compose up`. Here are some examples:
+
+- **Start only the Catalyst service:**
+  ```bash
+  docker-compose --profile catalyst up
+  ```
+
+- **Start the Catalyst and Locksmith services:**
+  ```bash
+  docker-compose --profile catalyst --profile locksmith up
+  ```
+
+- **Start all services:**
+  ```bash
+  docker-compose up
+  ```
+
+## Managing Dependencies
+
+- The `catalyst` service depends on the `locksmith` service. Ensure to include the `locksmith` profile when starting `catalyst`.
+
+- If you encounter dependency issues, make sure all required services are included in the profiles you start.
+
+## Configuration
+
+Configuration for each service can be found in the `service-config.yaml` file. Update this file with specific configuration details as needed.
+
+---
 ## 🚢 Deployment
 
 ### 🐳 Docker Deployment
@@ -407,7 +460,29 @@ Contributions are welcome! Please follow the standard GitHub workflow for contri
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-Please ensure your code follows the project's coding standards and includes appropriate tests.
+### Contribution Guidelines
+
+- Follow the coding standards outlined in the `CONTRIBUTING.md` file.
+- Ensure all new code is covered by tests.
+- Adhere to the project's code of conduct.
+
+## 📋 FAQs
+
+- **How do I switch between different AI models?**
+  - Use the configuration files to specify the desired model.
+
+- **What should I do if I encounter a deployment issue?**
+  - Check the logs for errors and consult the troubleshooting section.
+
+## 🔒 Security Considerations
+
+- Ensure all API keys and sensitive data are stored securely.
+- Regularly update dependencies to patch security vulnerabilities.
+
+## 🚀 Performance Tips
+
+- Use caching strategies to improve response times.
+- Optimize database queries for better performance.
 
 ## 📜 License
 
@@ -423,3 +498,7 @@ For support, contact [support@enterpriseaisuite.com](mailto:support@enterpriseai
 - 📘 **User Guide**: How to use Enterprise AI Suite
 - 📗 **Developer Guide**: How to extend Enterprise AI Suite
 - 📙 **Architecture**: System design and components
+
+---
+
+Add more detailed instructions or configurations as necessary for your project setup.

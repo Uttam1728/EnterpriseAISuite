@@ -1,3 +1,19 @@
-services:
-  locksmith: false
-  wayne: true
+# Basic configuration for the service
+# Add your specific configuration details here
+
+service:
+  name: Catalyst
+  version: 1.0.0
+  description: Configuration for the Catalyst service
+
+wayne:
+  name: Wayne
+  version: 1.0.0
+  description: Configuration for the Wayne service
+
+locksmith:
+  name: Locksmith
+  version: 1.0.0
+  description: Configuration for the Locksmith service
+
+# Add more configuration options as needed for each service 
