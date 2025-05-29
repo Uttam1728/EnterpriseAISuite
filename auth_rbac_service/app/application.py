@@ -8,7 +8,7 @@ def get_app() -> FastAPI:
     
     auth_rbac_service_app = FastAPI(
         debug=True,
-        title="auth-rbac-service",
+        title="auth_rbac_service",
         docs_url="/api-reference",
         redoc_url="/redoc",
         openapi_url="/openapi.json",

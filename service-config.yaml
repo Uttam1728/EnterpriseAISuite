@@ -2,18 +2,18 @@
 # Add your specific configuration details here
 
 service:
-  name: ai-assistant-core
+  name: ai_assistant_core
   version: 1.0.0
-  description: Configuration for the ai-assistant-core service
+  description: Configuration for the ai_assistant_core service
 
-billing-payments-service:
-  name: billing-payments-service
+billing_payments_service:
+  name: billing_payments_service
   version: 1.0.0
-  description: Configuration for the billing-payments-service service
+  description: Configuration for the billing_payments_service service
 
-auth-rbac-service:
-  name: auth-rbac-service
+auth_rbac_service:
+  name: auth_rbac_service
   version: 1.0.0
-  description: Configuration for the auth-rbac-service service
+  description: Configuration for the auth_rbac_service service
 
 # Add more configuration options as needed for each service 

@@ -1,41 +1,51 @@
 FROM ubuntu:22.04
 
+ENV LC_ALL C.UTF-8
+ENV LANG C.UTF-8
+ENV MY_VARIABLE my_value
+
 RUN apt-get update -y \
     && apt-get upgrade -y \
     && apt-get dist-upgrade -y \
     && apt-get install -y --no-install-recommends \
-    wget \
+    bash \
+    build-essential \
+    curl \
+    git \
+    librdkafka-dev \
+    openssh-server \
     python3-pip \
     python3-setuptools \
+    wget \
     && cd /usr/local/bin \
     && pip3 --no-cache-dir install --upgrade pip \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-    curl \
-    openssh-server \
-    git \
-    librdkafka-dev \
-    bash \
-    g++ \
-    build-essential && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
 
 RUN apt-get remove --purge -y linux-libc-dev
 
+WORKDIR /srv/ai_assistant_core
+ARG CACHE_BREAKER=default
 
-WORKDIR /srv/auth-rbac-service
+COPY requirements/requirements.txt .
 
-COPY requirements/requirements.txt ./
 
 RUN pip3 install --upgrade pip setuptools wheel && pip3 install -r ./requirements.txt
+
+
 COPY . .
+#RUN git rev-parse HEAD > gitsha && rm -rf .git
 
 
-WORKDIR /srv/auth-rbac-service
-RUN mkdir /srv/auth-rbac-service/repos
-EXPOSE 8082
+WORKDIR /srv/ai_assistant_core
+RUN mkdir -p /srv/ai_assistant_core/repos
+
+
+EXPOSE 8081
+RUN chmod +x ci-test.sh
 
 ENV ENVIRONMENT docker
-
 RUN python3 startup.py --all
 
 ENTRYPOINT ["python3", "entrypoint.py"]

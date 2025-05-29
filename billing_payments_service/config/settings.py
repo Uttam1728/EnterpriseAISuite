@@ -60,7 +60,7 @@ class Settings(BaseSettings):
     aps_scheduler: Optional[AsyncIOScheduler] = None
 
     clerk_secret_key: str = args.clerk_secret_key
-    clerk_auth_helper: ClerkAuthHelper = ClerkAuthHelper("billing-payments-service", clerk_secret_key=clerk_secret_key)
+    clerk_auth_helper: ClerkAuthHelper = ClerkAuthHelper("billing_payments_service", clerk_secret_key=clerk_secret_key)
     fallback_plan_id: str = args.fallback_plan_id
     subscription_cancellation_at: str = args.subscription_cancellation_at
 

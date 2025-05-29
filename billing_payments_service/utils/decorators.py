@@ -34,11 +34,11 @@ def latency(metric, **label_kwargs):
                     if elapsed_time > 0.2:
                         SLOW_QUERIES_COUNTER.labels(
                             query_type=sanitize_label(query_type_string),
-                            service_name="billing-payments-service"
+                            service_name="billing_payments_service"
                         ).inc()
                     DB_QUERY_LATENCY.labels(
                         query=sanitize_label(query_type_string),
-                        service_name="billing-payments-service"
+                        service_name="billing_payments_service"
                     ).observe(elapsed_time)
                 except Exception as prometheus_exp:
                     logger.error(str(prometheus_exp))
@@ -51,12 +51,12 @@ def latency(metric, **label_kwargs):
                 if "deadlock detected" in str(exp).lower():
                     DEADLOCK_COUNTER.labels(
                         query=sanitize_label(query_type_string),
-                        service_name="billing-payments-service"
+                        service_name="billing_payments_service"
                     ).inc()
 
                 FAILED_QUERIES_COUNTER.labels(
                     query_type=sanitize_label(query_type_string),
-                    service_name="billing-payments-service"
+                    service_name="billing_payments_service"
                 ).inc()
                 logger.error("Exception in latency decorator", str(exp))
                 logger.error(traceback.format_exc())
@@ -65,7 +65,7 @@ def latency(metric, **label_kwargs):
                 log_api_requests_to_gcp({"DAO function": query_type_string}, {"db_error":exp, "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR}, 0)
                 FAILED_QUERIES_COUNTER.labels(
                     query_type=sanitize_label(query_type_string),
-                    service_name="billing-payments-service"
+                    service_name="billing_payments_service"
                 ).inc()
                 logger.error("Exception in latency decorator", str(exp))
                 logger.error(traceback.format_exc())

@@ -1,8 +1,5 @@
 FROM ubuntu:22.04
 
-ENV LC_ALL C.UTF-8
-ENV LANG C.UTF-8
-
 RUN apt-get update -y \
     && apt-get upgrade -y \
     && apt-get dist-upgrade -y \
@@ -18,28 +15,27 @@ RUN apt-get update -y \
     git \
     librdkafka-dev \
     bash \
+    g++ \
     build-essential && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-
 RUN apt-get remove --purge -y linux-libc-dev
 
-# Update system packages and install required dependencies, including LTS Vim version
 
-WORKDIR /srv/billing-payments-service
+WORKDIR /srv/auth_rbac_service
 
-COPY ./requirements/requirements.txt .
+COPY requirements/requirements.txt ./
 
 RUN pip3 install --upgrade pip setuptools wheel && pip3 install -r ./requirements.txt
 COPY . .
 
-WORKDIR /srv/billing-payments-service
-RUN mkdir /srv/billing-payments-service/repos
+
+WORKDIR /srv/auth_rbac_service
+RUN mkdir /srv/auth_rbac_service/repos
+EXPOSE 8082
 
 ENV ENVIRONMENT docker
 
 RUN python3 startup.py --all
-
-EXPOSE 80
 
 ENTRYPOINT ["python3", "entrypoint.py"]

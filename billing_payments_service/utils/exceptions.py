@@ -24,5 +24,5 @@ class AnthropicException(CustomException):
 
 
 class SessionExpiredException(CustomException):
-    DEFAULT_MESSAGE = "Session Expired for billing-payments-service"
+    DEFAULT_MESSAGE = "Session Expired for billing_payments_service"
     ERROR_CODE = 6001

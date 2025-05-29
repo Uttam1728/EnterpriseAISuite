@@ -51,6 +51,6 @@ class Settings(BaseSettings):
     aps_scheduler: Optional[AsyncIOScheduler] = None
 
     clerk_secret_key: str = args.clerk_secret_key
-    clerk_auth_helper: ClerkAuthHelper = ClerkAuthHelper("auth-rbac-service", clerk_secret_key=clerk_secret_key)
+    clerk_auth_helper: ClerkAuthHelper = ClerkAuthHelper("auth_rbac_service", clerk_secret_key=clerk_secret_key)
 
 loaded_config = Settings()

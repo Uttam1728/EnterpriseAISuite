@@ -1,8 +1,8 @@
 from typing import Optional
 
 from sqlalchemy.ext.asyncio import AsyncSession
-from ../con
-from .config.settings import loaded_config
+from config.settings import loaded_config
+from config.settings import loaded_config
 
 
 class ConnectionHandler:

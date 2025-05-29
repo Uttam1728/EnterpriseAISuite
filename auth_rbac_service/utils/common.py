@@ -12,7 +12,7 @@ async def get_user_data_from_request(request: Request):
         return user_data
     except Exception as e:
         logger.info("Exception occured while fetching user data from request: %s", repr(e))
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="User not logged in -> auth-rbac-service") from e
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="User not logged in -> auth_rbac_service") from e
 
 
 def handle_exceptions(

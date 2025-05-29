@@ -1,24 +1,24 @@
 services:
-  ai-assistant-core:
+  ai_assistant_core:
     build:
-      context: ./ai-assistant-core
+      context: ai_assistant_core
       dockerfile: Dockerfile
     ports:
       - "8081:8081"
     environment:
       - ENVIRONMENT=docker
     volumes:
-      - ./ai-assistant-core:/srv/ai-assistant-core
-      - ai-assistant-core-repos:/srv/ai-assistant-core/repos
-      - ./service-config.yaml:/srv/ai-assistant-core/service-config.yaml
+      - ./ai_assistant_core:/srv/ai_assistant_core
+      - ai_assistant_core-repos:/srv/ai_assistant_core/repos
+      - ./service-config.yaml:/srv/ai_assistant_core/service-config.yaml
     networks:
       - app-network
     profiles:
-      - ai-assistant-core
+      - ai_assistant_core
 
-  auth-rbac-service:
+  auth_rbac_service:
     build:
-      context: auth-rbac-service
+      context: auth_rbac_service
       dockerfile: Dockerfile
     ports:
       - "8082:8082"
@@ -27,15 +27,15 @@ services:
       - ENVIRONMENT=docker
       - HOST=0.0.0.0
     volumes:
-      - auth-rbac-service-repos:/srv/auth-rbac-service/repos
+      - auth_rbac_service-repos:/srv/auth_rbac_service/repos
     networks:
       - app-network
     profiles:
-      - auth-rbac-service
+      - auth_rbac_service
 
-  billing-payments-service:
+  billing_payments_service:
     build:
-      context: billing-payments-service
+      context: billing_payments_service
       dockerfile: Dockerfile
     ports:
       - "8083:8083"
@@ -44,16 +44,16 @@ services:
       - ENVIRONMENT=docker
       - HOST=0.0.0.0
     volumes:
-      - billing-payments-service-repos:/srv/billing-payments-service/repos
+      - billing_payments_service-repos:/srv/billing_payments_service/repos
     networks:
       - app-network
     profiles:
-      - billing-payments-service
+      - billing_payments_service
 
 volumes:
-  ai-assistant-core-repos:
-  billing-payments-service-repos:
-  auth-rbac-service-repos:
+  ai_assistant_core-repos:
+  billing_payments_service-repos:
+  auth_rbac_service-repos:
 
 networks:
   app-network:

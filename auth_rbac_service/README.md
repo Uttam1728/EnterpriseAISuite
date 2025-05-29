@@ -1,4 +1,4 @@
-# 🔒 auth-rbac-service
+# 🔒 auth_rbac_service
 
 Team-based Role-Based Access Control (RBAC) system designed to integrate seamlessly with Clerk authentication service.
 
@@ -30,8 +30,8 @@ Team-based Role-Based Access Control (RBAC) system designed to integrate seamles
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/auth-rbac-service.git
-cd auth-rbac-service
+git clone https://github.com/yourusername/auth_rbac_service.git
+cd auth_rbac_service
 ```
 
 2. Create and activate virtual environment:
@@ -61,8 +61,8 @@ uvicorn main:app --host 0.0.0.0 --port 8082 --reload
 ### Using Docker
 
 ```bash
-docker build -t auth-rbac-service .
-docker run -p 8082:8082 auth-rbac-service
+docker build -t auth_rbac_service .
+docker run -p 8082:8082 auth_rbac_service
 ```
 
 ## 📚 API Documentation
@@ -127,7 +127,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## ⭐ Built with Fynix
 
-auth-rbac-service is proudly built using [Fynix](https://fynix.ai), bringing enterprise-grade security and scalability to your applications.
+auth_rbac_service is proudly built using [Fynix](https://fynix.ai), bringing enterprise-grade security and scalability to your applications.
 
 ---
 Made with ❤️ using Fynix

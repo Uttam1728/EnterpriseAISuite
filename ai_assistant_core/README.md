@@ -41,16 +41,16 @@
 
 ## 📖 Overview
 
-AI assistant Core Assistant is a robust, production-ready platform for building and deploying AI assistants. Built on FastAPI, it provides a flexible architecture for integrating multiple large language models (LLMs) and tools into a unified interface. ai-assistant-core enables developers to create sophisticated AI applications with features like conversation history management, authentication, and monitoring out of the box.
+AI assistant Core Assistant is a robust, production-ready platform for building and deploying AI assistants. Built on FastAPI, it provides a flexible architecture for integrating multiple large language models (LLMs) and tools into a unified interface. ai_assistant_core enables developers to create sophisticated AI applications with features like conversation history management, authentication, and monitoring out of the box.
 
 [//]: # ()
 [//]: # (<div align="center">)
 
 [//]: # (</div>)
 
-## ❓ Why ai-assistant-core?
+## ❓ Why ai_assistant_core?
 
-| Feature | ai-assistant-core | Other Solutions |
+| Feature | ai_assistant_core | Other Solutions |
 |---------|----------|-----------------|
 | **Multi-LLM Support** | ✅ OpenAI, Claude, Groq | Often limited to one provider |
 | **Deployment Ready** | ✅ Docker, K8s, CI/CD | Typically requires custom setup |
@@ -108,7 +108,7 @@ AI assistant Core Assistant is a robust, production-ready platform for building 
 The fastest way to get started is with Docker:
 
 ```bash
-docker run -p 8081:80 ai-assistant-core/ai-assistant-core:latest
+docker run -p 8081:80 ai_assistant_core/ai_assistant_core:latest
 ```
 
 Then visit `http://localhost:8081` in your browser.
@@ -117,8 +117,8 @@ Then visit `http://localhost:8081` in your browser.
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/ai-assistant-core.git
-   cd ai-assistant-core
+   git clone https://github.com/yourusername/ai_assistant_core.git
+   cd ai_assistant_core
    ```
 
 2. **Install dependencies**
@@ -164,7 +164,7 @@ Then visit `http://localhost:8081` in your browser.
 
 ## 🔧 Configuration
 
-ai-assistant-core uses a flexible configuration system based on YAML files in the `config/` directory:
+ai_assistant_core uses a flexible configuration system based on YAML files in the `config/` directory:
 
 | Environment | File | Purpose |
 |-------------|------|---------|
@@ -181,7 +181,7 @@ server:
   debug: false
 
 database:
-  url: postgresql://user:password@localhost:5432/ai-assistant-core
+  url: postgresql://user:password@localhost:5432/ai_assistant_core
   pool_size: 20
   max_overflow: 10
 
@@ -211,7 +211,7 @@ monitoring:
 #### Building the Image
 
 ```bash
-docker build -t ai-assistant-core .
+docker build -t ai_assistant_core .
 ```
 
 #### Running with Docker
@@ -222,7 +222,7 @@ docker run -p 8081:80 \
   -e OPENAI_KEY=your_openai_key \
   -e CLAUDE_KEY=your_claude_key \
   -e DB_URL=your_database_url \
-  ai-assistant-core
+  ai_assistant_core
 ```
 
 #### Using Docker Compose
@@ -233,11 +233,11 @@ A `docker-compose.yml` file is provided for easy deployment with dependencies:
 docker-compose up -d
 ```
 
-This will start ai-assistant-core along with PostgreSQL and other required services.
+This will start ai_assistant_core along with PostgreSQL and other required services.
 
 ### Kubernetes Deployment
 
-ai-assistant-core includes Kubernetes deployment configurations for production environments:
+ai_assistant_core includes Kubernetes deployment configurations for production environments:
 
 1. **Apply the configuration**:
    ```bash
@@ -246,7 +246,7 @@ ai-assistant-core includes Kubernetes deployment configurations for production e
 
 2. **Set up secrets**:
    ```bash
-   kubectl create secret generic ai-assistant-core-secrets \
+   kubectl create secret generic ai_assistant_core-secrets \
      --from-literal=OPENAI_KEY=your_openai_key \
      --from-literal=CLAUDE_KEY=your_claude_key \
      --from-literal=DB_URL=your_database_url
@@ -254,7 +254,7 @@ ai-assistant-core includes Kubernetes deployment configurations for production e
 
 3. **Access the service**:
    ```bash
-   kubectl port-forward svc/ai-assistant-core 8081:80
+   kubectl port-forward svc/ai_assistant_core 8081:80
    ```
 
 ## 🧪 Testing
@@ -299,25 +299,25 @@ Deploy an AI that can search through research papers, summarize findings, and as
 
 Join our community to get help, share ideas, and contribute to the project:
 
-- [Discord Server](https://discord.gg/ai-assistant-core)
-- [GitHub Discussions](https://github.com/yourusername/ai-assistant-core/discussions)
-- [Twitter](https://twitter.com/ai-assistant-coreai)
+- [Discord Server](https://discord.gg/ai_assistant_core)
+- [GitHub Discussions](https://github.com/yourusername/ai_assistant_core/discussions)
+- [Twitter](https://twitter.com/ai_assistant_coreai)
 
 [//]: # (### Contributors)
 
 [//]: # ()
-[//]: # (<a href="https://github.com/yourusername/ai-assistant-core/graphs/contributors">)
+[//]: # (<a href="https://github.com/yourusername/ai_assistant_core/graphs/contributors">)
 
-[//]: # (  <img src="https://contrib.rocks/image?repo=yourusername/ai-assistant-core" />)
+[//]: # (  <img src="https://contrib.rocks/image?repo=yourusername/ai_assistant_core" />)
 
 [//]: # (</a>)
 
 ## 📚 Documentation
 
-- **[API Reference](https://docs.ai-assistant-coreai.com/api)**: Complete API documentation
-- **[User Guide](https://docs.ai-assistant-coreai.com/guide)**: How to use ai-assistant-core
-- **[Developer Guide](https://docs.ai-assistant-coreai.com/dev)**: How to extend ai-assistant-core
-- **[Architecture](https://docs.ai-assistant-coreai.com/architecture)**: System design and components
+- **[API Reference](https://docs.ai_assistant_coreai.com/api)**: Complete API documentation
+- **[User Guide](https://docs.ai_assistant_coreai.com/guide)**: How to use ai_assistant_core
+- **[Developer Guide](https://docs.ai_assistant_coreai.com/dev)**: How to extend ai_assistant_core
+- **[Architecture](https://docs.ai_assistant_coreai.com/architecture)**: System design and components
 
 ## 🤝 Contributing
 
@@ -336,13 +336,13 @@ Please ensure your code follows the project's coding standards and includes appr
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contact Information
-For any inquiries or support, please contact us at [support@ai-assistant-coreai.com](mailto:support@ai-assistant-coreai.com).
+For any inquiries or support, please contact us at [support@ai_assistant_coreai.com](mailto:support@ai_assistant_coreai.com).
 
 ## Additional Resources
-- **[API Reference](https://docs.ai-assistant-coreai.com/api)**: Complete API documentation
-- **[User Guide](https://docs.ai-assistant-coreai.com/guide)**: How to use ai-assistant-core
-- **[Developer Guide](https://docs.ai-assistant-coreai.com/dev)**: How to extend ai-assistant-core
-- **[Architecture](https://docs.ai-assistant-coreai.com/architecture)**: System design and components
+- **[API Reference](https://docs.ai_assistant_coreai.com/api)**: Complete API documentation
+- **[User Guide](https://docs.ai_assistant_coreai.com/guide)**: How to use ai_assistant_core
+- **[Developer Guide](https://docs.ai_assistant_coreai.com/dev)**: How to extend ai_assistant_core
+- **[Architecture](https://docs.ai_assistant_coreai.com/architecture)**: System design and components
 
 ## Visuals
 Include screenshots, diagrams, or GIFs to illustrate key features or usage.

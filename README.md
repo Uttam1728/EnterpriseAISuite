@@ -59,7 +59,7 @@ Enterprise AI Suite follows a microservices architecture with three main compone
 
 ### 🧩 Core Components
 
-1. **🧠 AI assistant Core Engine** (`ai-assistant-core/`): The central component that manages AI model interactions, conversation history, and tool integrations. It handles:
+1. **🧠 AI assistant Core Engine** (`ai_assistant_core/`): The central component that manages AI model interactions, conversation history, and tool integrations. It handles:
    - LLM provider integrations (OpenAI, Claude, Groq)
    - Conversation management and context handling
    - Thread summarization for managing context windows
@@ -71,7 +71,7 @@ Enterprise AI Suite follows a microservices architecture with three main compone
    - Data source access management
    - User permission management
 
-3. **⚙️ billing-payments-service** (`billing-payments-service/`): Feature management and subscription service that handles:
+3. **⚙️ billing_payments_service** (`billing_payments_service/`): Feature management and subscription service that handles:
    - Feature flagging and management
    - Subscription handling via Paddle and Razorpay integration
    - User plan management
@@ -89,7 +89,7 @@ Enterprise AI Suite follows a microservices architecture with three main compone
 └───────┬───────────────────┬───────────────────────┬─────────┘
         │                   │                       │
 ┌───────▼───────┐   ┌───────▼───────┐       ┌───────▼───────┐
-│  AI assistant Core  │   │   auth_rbac_service   │       │     billing-payments-service     │
+│  AI assistant Core  │   │   auth_rbac_service   │       │     billing_payments_service     │
 │    Engine     │   │  RBAC System  │       │  Feature Mgmt │
 └───────┬───────┘   └───────────────┘       └───────────────┘
         │
@@ -104,12 +104,12 @@ Enterprise AI Suite follows a microservices architecture with three main compone
 
 ## 📁 Project Structure
 
-### 🧠 AI assistant Core (`ai-assistant-core/`)
+### 🧠 AI assistant Core (`ai_assistant_core/`)
 
 The core AI engine with the following structure:
 
 ```
-ai-assistant-core/
+ai_assistant_core/
 ├── config/          # Configuration files for different environments
 ├── utils/           # Utility functions and classes
 ├── mcp_configs/     # Multi-provider configuration management
@@ -147,12 +147,12 @@ auth_rbac_service/
 - **`app/`**: FastAPI application setup and core application logic
 - **`alembic/`**: Database migration scripts and environment configuration
 
-### ⚙️ billing-payments-service (`billing-payments-service/`)
+### ⚙️ billing_payments_service (`billing_payments_service/`)
 
 Feature and subscription management:
 
 ```
-billing-payments-service/
+billing_payments_service/
 ├── config/          # Configuration files
 ├── features/        # Feature management
 ├── plans/           # Subscription plan management
@@ -231,7 +231,7 @@ docker-compose up -d
 This will start:
 - AI assistant Core on port 8081
 - auth_rbac_service on port 8082
-- billing-payments-service on port 8083
+- billing_payments_service on port 8083
 
 Then visit `http://localhost:8081` in your browser.
 
@@ -246,25 +246,25 @@ Then visit `http://localhost:8081` in your browser.
 2. **Install dependencies for all services**
    ```bash
    # Install AI assistant Core dependencies
-   pip install -r ai-assistant-core/requirements/requirements.txt
+   pip install -r ai_assistant_core/requirements/requirements.txt
    
    # Install auth_rbac_service dependencies
-   pip install -r auth-rbac-service/requirements/requirements.txt
+   pip install -r auth_rbac_service/requirements/requirements.txt
    
-   # Install billing-payments-service dependencies
-   pip install -r billing-payments-service/requirements/requirements.txt
+   # Install billing_payments_service dependencies
+   pip install -r billing_payments_service/requirements/requirements.txt
    ```
 
 3. **Create local configuration files**
    ```bash
    # AI assistant Core configuration
-   cp ai-assistant-core/config/default.local.tmp.yaml ai-assistant-core/config/default.local.yaml
+   cp ai_assistant_core/config/default.local.tmp.yaml ai_assistant_core/config/default.local.yaml
    
    # auth_rbac_service configuration
-   cp auth-rbac-service/config/default.local.tmp.yaml auth-rbac-service/config/default.local.yaml
+   cp auth_rbac_service/config/default.local.tmp.yaml auth_rbac_service/config/default.local.yaml
    
-   # billing-payments-service configuration
-   cp billing-payments-service/config/default.local.tmp.yaml billing-payments-service/config/default.local.yaml
+   # billing_payments_service configuration
+   cp billing_payments_service/config/default.local.tmp.yaml billing_payments_service/config/default.local.yaml
    ```
 
 4. **Update the configurations**
@@ -279,17 +279,17 @@ Then visit `http://localhost:8081` in your browser.
 
    ```bash
    # AI assistant Core setup
-   cd ai-assistant-core
+   cd ai_assistant_core
    python startup.py --all
    cd ..
    
    # auth_rbac_service setup
-   cd auth-rbac-service
+   cd auth_rbac_service
    python startup.py --all
    cd ..
    
-   # billing-payments-service setup
-   cd billing-payments-service
+   # billing_payments_service setup
+   cd billing_payments_service
    python startup.py --all
    cd ..
    ```
@@ -298,22 +298,22 @@ Then visit `http://localhost:8081` in your browser.
 
    ```bash
    # Terminal 1: Start AI assistant Core
-   cd ai-assistant-core
+   cd ai_assistant_core
    python entrypoint.py
    
    # Terminal 2: Start auth_rbac_service
-   cd auth-rbac-service
+   cd auth_rbac_service
    python entrypoint.py
    
-   # Terminal 3: Start billing-payments-service
-   cd billing-payments-service
+   # Terminal 3: Start billing_payments_service
+   cd billing_payments_service
    python entrypoint.py
    ```
 
    The services will be available at:
    - AI assistant Core: http://localhost:8081
    - auth_rbac_service: http://localhost:8082
-   - billing-payments-service: http://localhost:8083
+   - billing_payments_service: http://localhost:8083
 
 > **💡 Tip:** For development environments, use the `--debug` flag when starting each service to enable hot reloading and detailed error messages.
 
@@ -325,14 +325,14 @@ This project uses Docker Compose to manage multiple services. You can control wh
 
 To start specific services, use the `--profile` option with `docker-compose up`. Here are some examples:
 
-- **Start only the ai-assistant-core service:**
+- **Start only the ai_assistant_core service:**
   ```bash
-  docker-compose --profile ai-assistant-core up
+  docker-compose --profile ai_assistant_core up
   ```
 
 - **Start the AI assistant Core and auth_rbac_service services:**
   ```bash
-  docker-compose --profile ai-assistant-core --profile auth-rbac-service up
+  docker-compose --profile ai_assistant_core --profile auth_rbac_service up
   ```
 
 - **Start all services:**
@@ -342,7 +342,7 @@ To start specific services, use the `--profile` option with `docker-compose up`.
 
 ## Managing Dependencies
 
-- The `ai-assistant-core` service depends on the `auth_rbac_service` service. Ensure to include the `auth_rbac_service` profile when starting `ai-assistant-core`.
+- The `ai_assistant_core` service depends on the `auth_rbac_service` service. Ensure to include the `auth_rbac_service` profile when starting `ai_assistant_core`.
 
 - If you encounter dependency issues, make sure all required services are included in the profiles you start.
 
@@ -371,13 +371,13 @@ You can also build and run individual Docker images:
 
 ```bash
 # Build AI assistant Core
-docker build -t ai-assistant-core ./ai-assistant-core
+docker build -t ai_assistant_core ./ai_assistant_core
 
 # Build auth_rbac_service
-docker build -t auth-rbac-service ./auth-rbac-service
+docker build -t auth_rbac_service ./auth_rbac_service
 
-# Build billing-payments-service
-docker build -t billing-payments-service ./billing-payments-service
+# Build billing_payments_service
+docker build -t billing_payments_service ./billing_payments_service
 
 # Run AI assistant Core
 docker run -p 8081:8081 \
@@ -385,7 +385,7 @@ docker run -p 8081:8081 \
   -e OPENAI_KEY=your_openai_key \
   -e CLAUDE_KEY=your_claude_key \
   -e DB_URL=your_database_url \
-  ai-assistant-core
+  ai_assistant_core
 ```
 
 ### ☸️ Kubernetes Deployment
@@ -407,7 +407,7 @@ Enterprise AI Suite includes Kubernetes deployment configurations for production
 
 3. **Access the service**:
    ```bash
-   kubectl port-forward svc/ai-assistant-core 8081:80
+   kubectl port-forward svc/ai_assistant_core 8081:80
    ```
 
 ### 🔄 CI/CD Pipeline
@@ -420,7 +420,7 @@ git tag deploy.v1.0.0
 git push origin deploy.v1.0.0
 ```
 
-This will trigger the deployment pipeline defined in `ai-assistant-core/azure-pipelines.yml`.
+This will trigger the deployment pipeline defined in `ai_assistant_core/azure-pipelines.yml`.
 
 ## ⚙️ Configuration
 
