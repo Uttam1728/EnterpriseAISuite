@@ -3,6 +3,8 @@ from pydantic import Field, BaseModel
 from starlette.requests import Request
 from clerk_integration.utils import UserData
 
+import typing
+import functools
 
 async def get_user_data_from_request(request: Request):
     try:

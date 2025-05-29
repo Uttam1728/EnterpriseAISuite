@@ -16,12 +16,8 @@ api_router = APIRouter()
 """ all version v1.0 routes """
 api_router_v1 = APIRouter(prefix='/v1.0')
 
-# all routes to public server
-if loaded_config.server_type == "public":
-    api_router_v1.include_router(teams_router)
-    api_router_v1.include_router(roles_router)
-else:
-    """ all common routes """
+api_router_v1.include_router(teams_router)
+api_router_v1.include_router(roles_router)
 
 """ health check routes """
 api_router_healthz = APIRouter()

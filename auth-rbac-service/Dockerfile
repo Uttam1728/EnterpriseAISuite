@@ -32,7 +32,7 @@ COPY . .
 
 WORKDIR /srv/auth-rbac-service
 RUN mkdir /srv/auth-rbac-service/repos
-EXPOSE 8000
+EXPOSE 8082
 
 ENV ENVIRONMENT docker
 
