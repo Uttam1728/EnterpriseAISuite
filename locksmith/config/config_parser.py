@@ -21,7 +21,7 @@ parser.add('--server_type', help='server_type')
 parser.add('--realm', help='realm')
 # debug flag
 parser.add('--debug', help='debug', action="store_true")
-parser.add('--postgres_fynix_locksmith_read_write', help='postgres_fynix_locksmith_read_write')
+parser.add('--locksmith_db_url', help='locksmith_db_url')
 # prometheus flag
 parser.add('--prometheus', help='prometheus', action="store_true")
 

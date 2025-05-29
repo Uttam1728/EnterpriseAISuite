@@ -49,7 +49,7 @@ pip install -r requirements/requirements.txt
    - Copy `config/default.yaml` to `config/local.yaml`
    - Update configuration values, especially:
      - `clerk_secret_key`
-     - `postgres_fynix_locksmith_read_write`
+     - `locksmith_db_url`
      - `kafka_broker_list` (if using Kafka)
 
 ### Running the Service

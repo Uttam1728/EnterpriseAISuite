@@ -108,68 +108,66 @@ Enterprise AI Suite follows a microservices architecture with three main compone
 
 The core AI engine with the following structure:
 
-| Directory/File | Description |
-|----------------|-------------|
-| 📁 **`config/`** | Configuration files for different environments |
-| 📄 `default.local.tmp.yaml` | Template for local development configuration |
-| 📄 `default.docker.yaml` | Docker environment configuration |
-| 📄 `default.prod.yaml` | Production environment configuration |
-| 📄 `default.sit.yaml` | System integration testing configuration |
-| 📁 **`utils/`** | Utility functions and classes |
-| 📄 `common.py` | Common utility functions including message transformation |
-| 📄 `exceptions.py` | Custom exception classes |
-| 📁 **`mcp_configs/`** | Multi-provider configuration management |
-| 📄 `models.py` | MCP model definitions |
-| 📄 `views.py` | API endpoints for MCP configuration |
-| 📁 **`wrapper/`** | Model wrapper implementations |
-| 📄 `models.py` | LLM model configuration |
-| 📁 **`surface/`** | Interface adapters |
-| 📄 `v2/utils.py` | Utility functions for the v2 API |
-| 📁 **`alembic/`** | Database migration management |
-| 📄 `versions/` | Migration scripts |
-| 📄 `env.py` | Alembic environment configuration |
+```
+catalyst_ai/
+├── config/          # Configuration files for different environments
+├── utils/           # Utility functions and classes
+├── mcp_configs/     # Multi-provider configuration management
+├── wrapper/         # Model wrapper implementations
+├── surface/         # Interface adapters
+└── alembic/         # Database migration management
+```
+
+**Directory Details:**
+- **`config/`**: Environment-specific configuration files (local, docker, production, SIT)
+- **`utils/`**: Common utility functions including message transformation and custom exceptions
+- **`mcp_configs/`**: MCP model definitions and API endpoints for configuration
+- **`wrapper/`**: LLM model configuration and wrapper implementations
+- **`surface/`**: Interface adapters and utility functions for API versions
+- **`alembic/`**: Database migration scripts and environment configuration
 
 ### 🔐 Locksmith (`locksmith/`)
 
 Authentication and authorization service:
 
-| Directory/File | Description |
-|----------------|-------------|
-| 📁 **`config/`** | Environment-specific configurations |
-| 📄 `default.local.yaml` | Local development settings |
-| 📄 `default.docker.yaml` | Docker deployment settings |
-| 📁 **`RBAC/`** | Role-Based Access Control implementation |
-| 📁 `teams/` | Team management |
-| 📁 `roles/` | Role definitions and permissions |
-| 📁 `datasources/` | Data source access management |
-| 📁 **`app/`** | Application code |
-| 📄 `application.py` | FastAPI application setup |
-| 📁 **`alembic/`** | Database migration management |
-| 📄 `versions/` | Migration scripts |
-| 📄 `env.py` | Alembic environment configuration |
+```
+locksmith/
+├── config/          # Environment-specific configurations
+├── RBAC/            # Role-Based Access Control implementation
+│   ├── teams/       # Team management
+│   ├── roles/       # Role definitions and permissions
+│   └── datasources/ # Data source access management
+├── app/             # Application code
+└── alembic/         # Database migration management
+```
+
+**Directory Details:**
+- **`config/`**: Local and docker deployment configuration settings
+- **`RBAC/`**: Complete Role-Based Access Control system with team, role, and data source management
+- **`app/`**: FastAPI application setup and core application logic
+- **`alembic/`**: Database migration scripts and environment configuration
 
 ### ⚙️ Wayne (`wayne/`)
 
 Feature and subscription management:
 
-| Directory/File | Description |
-|----------------|-------------|
-| 📁 **`config/`** | Configuration files |
-| 📄 `default.local.yaml` | Local development settings |
-| 📄 `default.docker.yaml` | Docker deployment settings |
-| 📁 **`features/`** | Feature management |
-| 📄 `models.py` | Feature data models |
-| 📄 `exceptions.py` | Feature-specific exceptions |
-| 📁 **`plans/`** | Subscription plan management |
-| 📄 `models.py` | Plan data models |
-| 📄 `exceptions.py` | Plan-related exceptions |
-| 📁 **`invoices/`** | Invoice management |
-| 📄 `models.py` | Invoice data models |
-| 📁 **`app/`** | Application code |
-| 📄 `application.py` | FastAPI application setup |
-| 📁 **`alembic/`** | Database migration management |
-| 📄 `versions/` | Migration scripts |
-| 📄 `env.py` | Alembic environment configuration |
+```
+wayne/
+├── config/          # Configuration files
+├── features/        # Feature management
+├── plans/           # Subscription plan management
+├── invoices/        # Invoice management
+├── app/             # Application code
+└── alembic/         # Database migration management
+```
+
+**Directory Details:**
+- **`config/`**: Local and docker deployment configuration settings
+- **`features/`**: Feature data models and feature-specific exceptions
+- **`plans/`**: Subscription plan data models and plan-related exceptions
+- **`invoices/`**: Invoice data models and invoice management logic
+- **`app/`**: FastAPI application setup and core application logic
+- **`alembic/`**: Database migration scripts and environment configuration
 
 ## ✨ Features
 
@@ -241,7 +239,7 @@ Then visit `http://localhost:8081` in your browser.
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/enterprise-ai-suite.git
+   git clone https://github.com/Uttam1728/enterprise-ai-suite.git
    cd enterprise-ai-suite
    ```
 

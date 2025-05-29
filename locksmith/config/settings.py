@@ -31,8 +31,8 @@ class Settings(BaseSettings):
     debug: bool = args.debug
     workers_count: int = 1
     mode: str = args.mode
-    postgres_fynix_locksmith_read_write: str = args.postgres_fynix_locksmith_read_write
-    db_url: str = async_db_url(args.postgres_fynix_locksmith_read_write)
+    locksmith_db_url: str = args.locksmith_db_url
+    db_url: str = async_db_url(args.locksmith_db_url)
     db_echo: bool = args.debug
     server_type: str = args.server_type
     realm: str = args.realm

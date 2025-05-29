@@ -21,7 +21,7 @@ parser.add('--server_type', help='server_type')
 parser.add('--realm', help='realm')
 # debug flag
 parser.add('--debug', help='debug', action="store_true")
-parser.add('--postgres_fynix_wayne_read_write', help='postgres_fynix_wayne_read_write')
+parser.add('--wayne_db_url', help='wayne_db_url')
 
 parser.add('--azure_openai_key', help='azure_openai_key')
 parser.add('--azure_openai_endpoint', help='azure_openai_endpoint')
