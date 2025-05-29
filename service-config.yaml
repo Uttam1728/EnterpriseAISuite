@@ -2,9 +2,9 @@
 # Add your specific configuration details here
 
 service:
-  name: Catalyst
+  name: ai-assitant-core
   version: 1.0.0
-  description: Configuration for the Catalyst service
+  description: Configuration for the ai-assitant-core service
 
 billing-payments-service:
   name: billing-payments-service

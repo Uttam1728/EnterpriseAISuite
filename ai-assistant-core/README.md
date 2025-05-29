@@ -1,6 +1,6 @@
 <div align="center">
 
-# Catalyst AI Assistant
+# AI Assitant Core Assistant
 
 
 **A powerful, extensible AI assistant platform with multi-LLM support**
@@ -41,18 +41,16 @@
 
 ## 📖 Overview
 
-Catalyst AI Assistant is a robust, production-ready platform for building and deploying AI assistants. Built on FastAPI, it provides a flexible architecture for integrating multiple large language models (LLMs) and tools into a unified interface. Catalyst enables developers to create sophisticated AI applications with features like conversation history management, authentication, and monitoring out of the box.
+AI Assitant Core Assistant is a robust, production-ready platform for building and deploying AI assistants. Built on FastAPI, it provides a flexible architecture for integrating multiple large language models (LLMs) and tools into a unified interface. ai-assistant-core enables developers to create sophisticated AI applications with features like conversation history management, authentication, and monitoring out of the box.
 
 [//]: # ()
 [//]: # (<div align="center">)
 
-[//]: # (  <img src="https://via.placeholder.com/800x400?text=Catalyst+Dashboard" alt="Catalyst Dashboard" width="80%"/>)
-
 [//]: # (</div>)
 
-## ❓ Why Catalyst?
+## ❓ Why ai-assistant-core?
 
-| Feature | Catalyst | Other Solutions |
+| Feature | ai-assistant-core | Other Solutions |
 |---------|----------|-----------------|
 | **Multi-LLM Support** | ✅ OpenAI, Claude, Groq | Often limited to one provider |
 | **Deployment Ready** | ✅ Docker, K8s, CI/CD | Typically requires custom setup |
@@ -60,17 +58,6 @@ Catalyst AI Assistant is a robust, production-ready platform for building and de
 | **Conversation Management** | ✅ Threads, history, summarization | Basic or non-existent |
 | **Tool Integration** | ✅ MCP framework for tools | Limited or proprietary |
 | **Open Source** | ✅ MIT License | Often proprietary or limited |
-
-[//]: # (## 🎬 Demo)
-
-[//]: # ()
-[//]: # (<div align="center">)
-
-[//]: # (  <img src="https://via.placeholder.com/600x400?text=Catalyst+Demo+GIF" alt="Catalyst Demo" width="70%"/>)
-
-[//]: # (</div>)
-
-[//]: # (> **Try it yourself!** A live demo is available at [demo.catalystai.com]&#40;https://demo.catalystai.com&#41;)
 
 ## ✨ Features
 
@@ -121,7 +108,7 @@ Catalyst AI Assistant is a robust, production-ready platform for building and de
 The fastest way to get started is with Docker:
 
 ```bash
-docker run -p 8081:80 catalystai/catalyst:latest
+docker run -p 8081:80 ai-assistant-core/ai-assistant-core:latest
 ```
 
 Then visit `http://localhost:8081` in your browser.
@@ -130,8 +117,8 @@ Then visit `http://localhost:8081` in your browser.
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/catalyst.git
-   cd catalyst
+   git clone https://github.com/yourusername/ai-assistant-core.git
+   cd ai-assistant-core
    ```
 
 2. **Install dependencies**
@@ -177,7 +164,7 @@ Then visit `http://localhost:8081` in your browser.
 
 ## 🔧 Configuration
 
-Catalyst uses a flexible configuration system based on YAML files in the `config/` directory:
+ai-assistant-core uses a flexible configuration system based on YAML files in the `config/` directory:
 
 | Environment | File | Purpose |
 |-------------|------|---------|
@@ -194,7 +181,7 @@ server:
   debug: false
 
 database:
-  url: postgresql://user:password@localhost:5432/catalyst
+  url: postgresql://user:password@localhost:5432/ai-assistant-core
   pool_size: 20
   max_overflow: 10
 
@@ -224,7 +211,7 @@ monitoring:
 #### Building the Image
 
 ```bash
-docker build -t catalyst .
+docker build -t ai-assistant-core .
 ```
 
 #### Running with Docker
@@ -235,7 +222,7 @@ docker run -p 8081:80 \
   -e OPENAI_KEY=your_openai_key \
   -e CLAUDE_KEY=your_claude_key \
   -e DB_URL=your_database_url \
-  catalyst
+  ai-assistant-core
 ```
 
 #### Using Docker Compose
@@ -246,11 +233,11 @@ A `docker-compose.yml` file is provided for easy deployment with dependencies:
 docker-compose up -d
 ```
 
-This will start Catalyst along with PostgreSQL and other required services.
+This will start ai-assistant-core along with PostgreSQL and other required services.
 
 ### Kubernetes Deployment
 
-Catalyst includes Kubernetes deployment configurations for production environments:
+ai-assistant-core includes Kubernetes deployment configurations for production environments:
 
 1. **Apply the configuration**:
    ```bash
@@ -259,7 +246,7 @@ Catalyst includes Kubernetes deployment configurations for production environmen
 
 2. **Set up secrets**:
    ```bash
-   kubectl create secret generic catalyst-secrets \
+   kubectl create secret generic ai-assistant-core-secrets \
      --from-literal=OPENAI_KEY=your_openai_key \
      --from-literal=CLAUDE_KEY=your_claude_key \
      --from-literal=DB_URL=your_database_url
@@ -267,7 +254,7 @@ Catalyst includes Kubernetes deployment configurations for production environmen
 
 3. **Access the service**:
    ```bash
-   kubectl port-forward svc/catalyst 8081:80
+   kubectl port-forward svc/ai-assistant-core 8081:80
    ```
 
 ## 🧪 Testing
@@ -285,7 +272,7 @@ This will:
 
 ## 📊 Use Cases
 
-Catalyst AI Assistant can be deployed in various scenarios:
+AI Assitant Core Assistant can be deployed in various scenarios:
 
 [//]: # ()
 [//]: # (### Customer Support)
@@ -312,25 +299,25 @@ Deploy an AI that can search through research papers, summarize findings, and as
 
 Join our community to get help, share ideas, and contribute to the project:
 
-- [Discord Server](https://discord.gg/catalyst)
-- [GitHub Discussions](https://github.com/yourusername/catalyst/discussions)
-- [Twitter](https://twitter.com/catalystai)
+- [Discord Server](https://discord.gg/ai-assistant-core)
+- [GitHub Discussions](https://github.com/yourusername/ai-assistant-core/discussions)
+- [Twitter](https://twitter.com/ai-assistant-coreai)
 
 [//]: # (### Contributors)
 
 [//]: # ()
-[//]: # (<a href="https://github.com/yourusername/catalyst/graphs/contributors">)
+[//]: # (<a href="https://github.com/yourusername/ai-assistant-core/graphs/contributors">)
 
-[//]: # (  <img src="https://contrib.rocks/image?repo=yourusername/catalyst" />)
+[//]: # (  <img src="https://contrib.rocks/image?repo=yourusername/ai-assistant-core" />)
 
 [//]: # (</a>)
 
 ## 📚 Documentation
 
-- **[API Reference](https://docs.catalystai.com/api)**: Complete API documentation
-- **[User Guide](https://docs.catalystai.com/guide)**: How to use Catalyst
-- **[Developer Guide](https://docs.catalystai.com/dev)**: How to extend Catalyst
-- **[Architecture](https://docs.catalystai.com/architecture)**: System design and components
+- **[API Reference](https://docs.ai-assistant-coreai.com/api)**: Complete API documentation
+- **[User Guide](https://docs.ai-assistant-coreai.com/guide)**: How to use ai-assistant-core
+- **[Developer Guide](https://docs.ai-assistant-coreai.com/dev)**: How to extend ai-assistant-core
+- **[Architecture](https://docs.ai-assistant-coreai.com/architecture)**: System design and components
 
 ## 🤝 Contributing
 
@@ -349,13 +336,13 @@ Please ensure your code follows the project's coding standards and includes appr
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contact Information
-For any inquiries or support, please contact us at [support@catalystai.com](mailto:support@catalystai.com).
+For any inquiries or support, please contact us at [support@ai-assistant-coreai.com](mailto:support@ai-assistant-coreai.com).
 
 ## Additional Resources
-- **[API Reference](https://docs.catalystai.com/api)**: Complete API documentation
-- **[User Guide](https://docs.catalystai.com/guide)**: How to use Catalyst
-- **[Developer Guide](https://docs.catalystai.com/dev)**: How to extend Catalyst
-- **[Architecture](https://docs.catalystai.com/architecture)**: System design and components
+- **[API Reference](https://docs.ai-assistant-coreai.com/api)**: Complete API documentation
+- **[User Guide](https://docs.ai-assistant-coreai.com/guide)**: How to use ai-assistant-core
+- **[Developer Guide](https://docs.ai-assistant-coreai.com/dev)**: How to extend ai-assistant-core
+- **[Architecture](https://docs.ai-assistant-coreai.com/architecture)**: System design and components
 
 ## Visuals
 Include screenshots, diagrams, or GIFs to illustrate key features or usage.

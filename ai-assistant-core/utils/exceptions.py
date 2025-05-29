@@ -132,5 +132,5 @@ class URLConnectionException(ApplicationException):
 
 
 class SessionExpiredException(ApplicationException):
-    DEFAULT_MESSAGE = "Session Expired for catalyst"
+    DEFAULT_MESSAGE = "Session Expired for ai_assistant"
     ERROR_CODE = 6001

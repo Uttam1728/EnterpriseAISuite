@@ -59,7 +59,7 @@ Enterprise AI Suite follows a microservices architecture with three main compone
 
 ### 🧩 Core Components
 
-1. **🧠 Catalyst AI Engine** (`ai-assistant-core/`): The central component that manages AI model interactions, conversation history, and tool integrations. It handles:
+1. **🧠 AI Assitant Core Engine** (`ai-assistant-core/`): The central component that manages AI model interactions, conversation history, and tool integrations. It handles:
    - LLM provider integrations (OpenAI, Claude, Groq)
    - Conversation management and context handling
    - Thread summarization for managing context windows
@@ -89,7 +89,7 @@ Enterprise AI Suite follows a microservices architecture with three main compone
 └───────┬───────────────────┬───────────────────────┬─────────┘
         │                   │                       │
 ┌───────▼───────┐   ┌───────▼───────┐       ┌───────▼───────┐
-│  Catalyst AI  │   │   auth_rbac_service   │       │     billing-payments-service     │
+│  AI Assitant Core  │   │   auth_rbac_service   │       │     billing-payments-service     │
 │    Engine     │   │  RBAC System  │       │  Feature Mgmt │
 └───────┬───────┘   └───────────────┘       └───────────────┘
         │
@@ -104,7 +104,7 @@ Enterprise AI Suite follows a microservices architecture with three main compone
 
 ## 📁 Project Structure
 
-### 🧠 Catalyst AI (`ai-assistant-core/`)
+### 🧠 AI Assitant Core (`ai-assistant-core/`)
 
 The core AI engine with the following structure:
 
@@ -229,7 +229,7 @@ docker-compose up -d
 ```
 
 This will start:
-- Catalyst AI on port 8081
+- AI Assitant Core on port 8081
 - auth_rbac_service on port 8082
 - billing-payments-service on port 8083
 
@@ -245,7 +245,7 @@ Then visit `http://localhost:8081` in your browser.
 
 2. **Install dependencies for all services**
    ```bash
-   # Install Catalyst AI dependencies
+   # Install AI Assitant Core dependencies
    pip install -r ai-assistant-core/requirements/requirements.txt
    
    # Install auth_rbac_service dependencies
@@ -257,7 +257,7 @@ Then visit `http://localhost:8081` in your browser.
 
 3. **Create local configuration files**
    ```bash
-   # Catalyst AI configuration
+   # AI Assitant Core configuration
    cp ai-assistant-core/config/default.local.tmp.yaml ai-assistant-core/config/default.local.yaml
    
    # auth_rbac_service configuration
@@ -278,7 +278,7 @@ Then visit `http://localhost:8081` in your browser.
 5. **Database Setup for each service**
 
    ```bash
-   # Catalyst AI setup
+   # AI Assitant Core setup
    cd ai-assistant-core
    python startup.py --all
    cd ..
@@ -297,7 +297,7 @@ Then visit `http://localhost:8081` in your browser.
 6. **Start all services (in separate terminal windows)**
 
    ```bash
-   # Terminal 1: Start Catalyst AI
+   # Terminal 1: Start AI Assitant Core
    cd ai-assistant-core
    python entrypoint.py
    
@@ -311,7 +311,7 @@ Then visit `http://localhost:8081` in your browser.
    ```
 
    The services will be available at:
-   - Catalyst AI: http://localhost:8081
+   - AI Assitant Core: http://localhost:8081
    - auth_rbac_service: http://localhost:8082
    - billing-payments-service: http://localhost:8083
 
@@ -325,14 +325,14 @@ This project uses Docker Compose to manage multiple services. You can control wh
 
 To start specific services, use the `--profile` option with `docker-compose up`. Here are some examples:
 
-- **Start only the Catalyst service:**
+- **Start only the ai-assistant-core service:**
   ```bash
-  docker-compose --profile catalyst up
+  docker-compose --profile ai-assistant-core up
   ```
 
-- **Start the Catalyst and auth_rbac_service services:**
+- **Start the AI Assitant Core and auth_rbac_service services:**
   ```bash
-  docker-compose --profile catalyst --profile auth-rbac-service up
+  docker-compose --profile ai-assistant-core --profile auth-rbac-service up
   ```
 
 - **Start all services:**
@@ -342,7 +342,7 @@ To start specific services, use the `--profile` option with `docker-compose up`.
 
 ## Managing Dependencies
 
-- The `catalyst` service depends on the `auth_rbac_service` service. Ensure to include the `auth_rbac_service` profile when starting `catalyst`.
+- The `ai-assistant-core` service depends on the `auth_rbac_service` service. Ensure to include the `auth_rbac_service` profile when starting `ai-assistant-core`.
 
 - If you encounter dependency issues, make sure all required services are included in the profiles you start.
 
@@ -370,8 +370,8 @@ This will start all services with the proper configurations and dependencies.
 You can also build and run individual Docker images:
 
 ```bash
-# Build Catalyst AI
-docker build -t catalyst ./ai-assistant-core
+# Build AI Assitant Core
+docker build -t ai-assistant-core ./ai-assistant-core
 
 # Build auth_rbac_service
 docker build -t auth-rbac-service ./auth-rbac-service
@@ -379,13 +379,13 @@ docker build -t auth-rbac-service ./auth-rbac-service
 # Build billing-payments-service
 docker build -t billing-payments-service ./billing-payments-service
 
-# Run Catalyst AI
+# Run AI Assitant Core
 docker run -p 8081:8081 \
   -e ENVIRONMENT=prod \
   -e OPENAI_KEY=your_openai_key \
   -e CLAUDE_KEY=your_claude_key \
   -e DB_URL=your_database_url \
-  catalyst
+  ai-assistant-core
 ```
 
 ### ☸️ Kubernetes Deployment
@@ -407,7 +407,7 @@ Enterprise AI Suite includes Kubernetes deployment configurations for production
 
 3. **Access the service**:
    ```bash
-   kubectl port-forward svc/catalyst 8081:80
+   kubectl port-forward svc/ai-assistant-core 8081:80
    ```
 
 ### 🔄 CI/CD Pipeline

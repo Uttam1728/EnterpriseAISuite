@@ -25,7 +25,7 @@ RUN apt-get update -y \
 
 RUN apt-get remove --purge -y linux-libc-dev
 
-WORKDIR /srv/catalyst
+WORKDIR /srv/ai-assitant-core
 COPY requirements/requirements.txt .
 
 
@@ -36,8 +36,8 @@ COPY . .
 #RUN git rev-parse HEAD > gitsha && rm -rf .git
 
 
-WORKDIR /srv/catalyst
-RUN mkdir -p /srv/catalyst/repos
+WORKDIR /srv/ai-assitant-core
+RUN mkdir -p /srv/ai-assitant-core/repos
 
 
 EXPOSE 8081

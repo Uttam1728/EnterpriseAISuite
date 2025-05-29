@@ -1,5 +1,5 @@
 services:
-  catalyst:
+  ai-assitant-core:
     build:
       context: ./ai-assistant-core
       dockerfile: Dockerfile
@@ -8,13 +8,13 @@ services:
     environment:
       - ENVIRONMENT=docker
     volumes:
-      - ./ai-assistant-core:/srv/catalyst
-      - catalyst-repos:/srv/catalyst/repos
-      - ./service-config.yaml:/srv/catalyst/service-config.yaml
+      - ./ai-assistant-core:/srv/ai-assitant-core
+      - ai-assitant-core-repos:/srv/ai-assitant-core/repos
+      - ./service-config.yaml:/srv/ai-assitant-core/service-config.yaml
     networks:
       - app-network
     profiles:
-      - catalyst
+      - ai-assitant-core
 
   auth-rbac-service:
     build:
@@ -51,7 +51,7 @@ services:
       - billing-payments-service
 
 volumes:
-  catalyst-repos:
+  ai-assitant-core-repos:
   billing-payments-service-repos:
   auth-rbac-service-repos:
 

@@ -58,16 +58,16 @@ def get_app() -> FastAPI:
     # Enables sentry integration.
     configure_sentry()
 
-    catalyst_app = FastAPI(
+    ai_assistant_core_app = FastAPI(
         debug=True,
-        title="catalyst",
+        title="ai-assitant-core",
         docs_url="/api-reference",
         openapi_url="/openapi.json",
         lifespan=lifespan,
         root_path="/"
     )
     # Configure CORS to allow only 'wmsz0.de'
-    catalyst_app.add_middleware(
+    ai_assistant_core_app.add_middleware(
         CORSMiddleware,
         # allow_origins=["*"],  # Only allow this origins
         allow_origins=[],  # Only allow this origins
@@ -76,24 +76,24 @@ def get_app() -> FastAPI:
         allow_headers=["*"],  # Allows all headers
     )
 
-    catalyst_app.include_router(api_router)
-    catalyst_app.add_middleware(SessionMiddleware, secret_key="** Session Middleware **")
-    catalyst_app.add_middleware(SecurityHeadersMiddleware)
+    ai_assistant_core_app.include_router(api_router)
+    ai_assistant_core_app.add_middleware(SessionMiddleware, secret_key="** Session Middleware **")
+    ai_assistant_core_app.add_middleware(SecurityHeadersMiddleware)
     print(loaded_config.skip_paths_for_restriction.split(","))
     # Check if restriction middleware should be enabled from environment variable
     use_restriction_middleware = os.getenv("USE_RESTRICTION_MIDDLEWARE", "False").lower() == "true"
 
     if use_restriction_middleware:
-        catalyst_app.add_middleware(RestrictionMiddleware, redis_url=loaded_config.redis_payments_url,
+        ai_assistant_core_app.add_middleware(RestrictionMiddleware, redis_url=loaded_config.redis_payments_url,
                                     skip_paths=loaded_config.skip_paths_for_restriction.split(","))
-    # Add the Prometheus middleware with the catalyst prefix
+    # Add the Prometheus middleware with the ai-assitant-core prefix
     from config.logging import logger
-    catalyst_app.add_middleware(
+    ai_assistant_core_app.add_middleware(
         PrometheusMiddleware,
-        prefix="catalyst",
+        prefix="ai-assitant-core",
         logger=logger
     )
 
-    FastAPIInstrumentor.instrument_app(catalyst_app)
-    catalyst_app.add_route('/metrics', metrics_endpoint)
-    return catalyst_app
+    FastAPIInstrumentor.instrument_app(ai_assistant_core_app)
+    ai_assistant_core_app.add_route('/metrics', metrics_endpoint)
+    return ai_assistant_core_app
