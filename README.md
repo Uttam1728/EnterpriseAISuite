@@ -59,7 +59,7 @@ Enterprise AI Suite follows a microservices architecture with three main compone
 
 ### 🧩 Core Components
 
-1. **🧠 AI Assitant Core Engine** (`ai-assistant-core/`): The central component that manages AI model interactions, conversation history, and tool integrations. It handles:
+1. **🧠 AI assistant Core Engine** (`ai-assistant-core/`): The central component that manages AI model interactions, conversation history, and tool integrations. It handles:
    - LLM provider integrations (OpenAI, Claude, Groq)
    - Conversation management and context handling
    - Thread summarization for managing context windows
@@ -89,7 +89,7 @@ Enterprise AI Suite follows a microservices architecture with three main compone
 └───────┬───────────────────┬───────────────────────┬─────────┘
         │                   │                       │
 ┌───────▼───────┐   ┌───────▼───────┐       ┌───────▼───────┐
-│  AI Assitant Core  │   │   auth_rbac_service   │       │     billing-payments-service     │
+│  AI assistant Core  │   │   auth_rbac_service   │       │     billing-payments-service     │
 │    Engine     │   │  RBAC System  │       │  Feature Mgmt │
 └───────┬───────┘   └───────────────┘       └───────────────┘
         │
@@ -104,7 +104,7 @@ Enterprise AI Suite follows a microservices architecture with three main compone
 
 ## 📁 Project Structure
 
-### 🧠 AI Assitant Core (`ai-assistant-core/`)
+### 🧠 AI assistant Core (`ai-assistant-core/`)
 
 The core AI engine with the following structure:
 
@@ -229,7 +229,7 @@ docker-compose up -d
 ```
 
 This will start:
-- AI Assitant Core on port 8081
+- AI assistant Core on port 8081
 - auth_rbac_service on port 8082
 - billing-payments-service on port 8083
 
@@ -245,7 +245,7 @@ Then visit `http://localhost:8081` in your browser.
 
 2. **Install dependencies for all services**
    ```bash
-   # Install AI Assitant Core dependencies
+   # Install AI assistant Core dependencies
    pip install -r ai-assistant-core/requirements/requirements.txt
    
    # Install auth_rbac_service dependencies
@@ -257,7 +257,7 @@ Then visit `http://localhost:8081` in your browser.
 
 3. **Create local configuration files**
    ```bash
-   # AI Assitant Core configuration
+   # AI assistant Core configuration
    cp ai-assistant-core/config/default.local.tmp.yaml ai-assistant-core/config/default.local.yaml
    
    # auth_rbac_service configuration
@@ -278,7 +278,7 @@ Then visit `http://localhost:8081` in your browser.
 5. **Database Setup for each service**
 
    ```bash
-   # AI Assitant Core setup
+   # AI assistant Core setup
    cd ai-assistant-core
    python startup.py --all
    cd ..
@@ -297,7 +297,7 @@ Then visit `http://localhost:8081` in your browser.
 6. **Start all services (in separate terminal windows)**
 
    ```bash
-   # Terminal 1: Start AI Assitant Core
+   # Terminal 1: Start AI assistant Core
    cd ai-assistant-core
    python entrypoint.py
    
@@ -311,7 +311,7 @@ Then visit `http://localhost:8081` in your browser.
    ```
 
    The services will be available at:
-   - AI Assitant Core: http://localhost:8081
+   - AI assistant Core: http://localhost:8081
    - auth_rbac_service: http://localhost:8082
    - billing-payments-service: http://localhost:8083
 
@@ -330,7 +330,7 @@ To start specific services, use the `--profile` option with `docker-compose up`.
   docker-compose --profile ai-assistant-core up
   ```
 
-- **Start the AI Assitant Core and auth_rbac_service services:**
+- **Start the AI assistant Core and auth_rbac_service services:**
   ```bash
   docker-compose --profile ai-assistant-core --profile auth-rbac-service up
   ```
@@ -370,7 +370,7 @@ This will start all services with the proper configurations and dependencies.
 You can also build and run individual Docker images:
 
 ```bash
-# Build AI Assitant Core
+# Build AI assistant Core
 docker build -t ai-assistant-core ./ai-assistant-core
 
 # Build auth_rbac_service
@@ -379,7 +379,7 @@ docker build -t auth-rbac-service ./auth-rbac-service
 # Build billing-payments-service
 docker build -t billing-payments-service ./billing-payments-service
 
-# Run AI Assitant Core
+# Run AI assistant Core
 docker run -p 8081:8081 \
   -e ENVIRONMENT=prod \
   -e OPENAI_KEY=your_openai_key \

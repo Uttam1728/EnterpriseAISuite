@@ -25,7 +25,9 @@ RUN apt-get update -y \
 
 RUN apt-get remove --purge -y linux-libc-dev
 
-WORKDIR /srv/ai-assitant-core
+WORKDIR /srv/ai-assistant-core
+ARG CACHE_BREAKER=default
+
 COPY requirements/requirements.txt .
 
 
@@ -36,8 +38,8 @@ COPY . .
 #RUN git rev-parse HEAD > gitsha && rm -rf .git
 
 
-WORKDIR /srv/ai-assitant-core
-RUN mkdir -p /srv/ai-assitant-core/repos
+WORKDIR /srv/ai-assistant-core
+RUN mkdir -p /srv/ai-assistant-core/repos
 
 
 EXPOSE 8081

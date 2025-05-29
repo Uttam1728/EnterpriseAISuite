@@ -60,7 +60,7 @@ def get_app() -> FastAPI:
 
     ai_assistant_core_app = FastAPI(
         debug=True,
-        title="ai-assitant-core",
+        title="ai-assistant-core",
         docs_url="/api-reference",
         openapi_url="/openapi.json",
         lifespan=lifespan,
@@ -86,11 +86,11 @@ def get_app() -> FastAPI:
     if use_restriction_middleware:
         ai_assistant_core_app.add_middleware(RestrictionMiddleware, redis_url=loaded_config.redis_payments_url,
                                     skip_paths=loaded_config.skip_paths_for_restriction.split(","))
-    # Add the Prometheus middleware with the ai-assitant-core prefix
+    # Add the Prometheus middleware with the ai-assistant-core prefix
     from config.logging import logger
     ai_assistant_core_app.add_middleware(
         PrometheusMiddleware,
-        prefix="ai-assitant-core",
+        prefix="ai_assistant_core",
         logger=logger
     )
 

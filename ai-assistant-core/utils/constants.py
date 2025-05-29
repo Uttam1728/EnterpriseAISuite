@@ -1,7 +1,7 @@
 IND_TIME_ZONE = "Asia/Kolkata"
 UTC_TIME_ZONE = "UTC"
 
-SERVICE_NAME = "ai-assitant-core"
+SERVICE_NAME = "ai-assistant-core"
 
 # todo: Change the messages as per the content
 RestrictionMessageCodeMapping = {

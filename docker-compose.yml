@@ -1,5 +1,5 @@
 services:
-  ai-assitant-core:
+  ai-assistant-core:
     build:
       context: ./ai-assistant-core
       dockerfile: Dockerfile
@@ -8,13 +8,13 @@ services:
     environment:
       - ENVIRONMENT=docker
     volumes:
-      - ./ai-assistant-core:/srv/ai-assitant-core
-      - ai-assitant-core-repos:/srv/ai-assitant-core/repos
-      - ./service-config.yaml:/srv/ai-assitant-core/service-config.yaml
+      - ./ai-assistant-core:/srv/ai-assistant-core
+      - ai-assistant-core-repos:/srv/ai-assistant-core/repos
+      - ./service-config.yaml:/srv/ai-assistant-core/service-config.yaml
     networks:
       - app-network
     profiles:
-      - ai-assitant-core
+      - ai-assistant-core
 
   auth-rbac-service:
     build:
@@ -51,7 +51,7 @@ services:
       - billing-payments-service
 
 volumes:
-  ai-assitant-core-repos:
+  ai-assistant-core-repos:
   billing-payments-service-repos:
   auth-rbac-service-repos:
 

@@ -35,7 +35,7 @@ RUN mkdir /srv/auth-rbac-service/repos
 EXPOSE 8000
 
 ENV ENVIRONMENT docker
-ARG CACHE_BREAKER=default
+
 RUN python3 startup.py --all
 
 ENTRYPOINT ["python3", "entrypoint.py"]

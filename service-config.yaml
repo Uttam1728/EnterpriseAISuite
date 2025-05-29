@@ -2,9 +2,9 @@
 # Add your specific configuration details here
 
 service:
-  name: ai-assitant-core
+  name: ai-assistant-core
   version: 1.0.0
-  description: Configuration for the ai-assitant-core service
+  description: Configuration for the ai-assistant-core service
 
 billing-payments-service:
   name: billing-payments-service

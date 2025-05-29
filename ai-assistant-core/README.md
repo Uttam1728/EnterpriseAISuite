@@ -1,6 +1,6 @@
 <div align="center">
 
-# AI Assitant Core Assistant
+# AI assistant Core Assistant
 
 
 **A powerful, extensible AI assistant platform with multi-LLM support**
@@ -41,7 +41,7 @@
 
 ## 📖 Overview
 
-AI Assitant Core Assistant is a robust, production-ready platform for building and deploying AI assistants. Built on FastAPI, it provides a flexible architecture for integrating multiple large language models (LLMs) and tools into a unified interface. ai-assistant-core enables developers to create sophisticated AI applications with features like conversation history management, authentication, and monitoring out of the box.
+AI assistant Core Assistant is a robust, production-ready platform for building and deploying AI assistants. Built on FastAPI, it provides a flexible architecture for integrating multiple large language models (LLMs) and tools into a unified interface. ai-assistant-core enables developers to create sophisticated AI applications with features like conversation history management, authentication, and monitoring out of the box.
 
 [//]: # ()
 [//]: # (<div align="center">)
@@ -272,7 +272,7 @@ This will:
 
 ## 📊 Use Cases
 
-AI Assitant Core Assistant can be deployed in various scenarios:
+AI assistant Core Assistant can be deployed in various scenarios:
 
 [//]: # ()
 [//]: # (### Customer Support)
