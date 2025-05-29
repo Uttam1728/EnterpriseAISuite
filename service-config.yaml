@@ -6,14 +6,14 @@ service:
   version: 1.0.0
   description: Configuration for the Catalyst service
 
-wayne:
-  name: Wayne
+billing-payments-service:
+  name: billing-payments-service
   version: 1.0.0
-  description: Configuration for the Wayne service
+  description: Configuration for the billing-payments-service service
 
-locksmith:
-  name: Locksmith
+auth-rbac-service:
+  name: auth-rbac-service
   version: 1.0.0
-  description: Configuration for the Locksmith service
+  description: Configuration for the auth-rbac-service service
 
 # Add more configuration options as needed for each service 

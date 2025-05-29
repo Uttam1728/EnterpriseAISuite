@@ -1,14 +1,14 @@
 services:
   catalyst:
     build:
-      context: ./catalyst_ai
+      context: ./ai-assistant-core
       dockerfile: Dockerfile
     ports:
       - "8081:8081"
     environment:
       - ENVIRONMENT=docker
     volumes:
-      - ./catalyst_ai:/srv/catalyst
+      - ./ai-assistant-core:/srv/catalyst
       - catalyst-repos:/srv/catalyst/repos
       - ./service-config.yaml:/srv/catalyst/service-config.yaml
     networks:
@@ -16,9 +16,9 @@ services:
     profiles:
       - catalyst
 
-  locksmith:
+  auth-rbac-service:
     build:
-      context: ./locksmith
+      context: auth-rbac-service
       dockerfile: Dockerfile
     ports:
       - "8082:8082"
@@ -27,15 +27,15 @@ services:
       - ENVIRONMENT=docker
       - HOST=0.0.0.0
     volumes:
-      - locksmith-repos:/srv/locksmith/repos
+      - auth-rbac-service-repos:/srv/auth-rbac-service/repos
     networks:
       - app-network
     profiles:
-      - locksmith
+      - auth-rbac-service
 
-  wayne:
+  billing-payments-service:
     build:
-      context: ./wayne
+      context: billing-payments-service
       dockerfile: Dockerfile
     ports:
       - "8083:8083"
@@ -44,16 +44,16 @@ services:
       - ENVIRONMENT=docker
       - HOST=0.0.0.0
     volumes:
-      - wayne-repos:/srv/wayne/repos
+      - billing-payments-service-repos:/srv/billing-payments-service/repos
     networks:
       - app-network
     profiles:
-      - wayne
+      - billing-payments-service
 
 volumes:
   catalyst-repos:
-  wayne-repos:
-  locksmith-repos:
+  billing-payments-service-repos:
+  auth-rbac-service-repos:
 
 networks:
   app-network:

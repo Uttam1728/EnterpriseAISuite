@@ -59,19 +59,19 @@ Enterprise AI Suite follows a microservices architecture with three main compone
 
 ### 🧩 Core Components
 
-1. **🧠 Catalyst AI Engine** (`catalyst_ai/`): The central component that manages AI model interactions, conversation history, and tool integrations. It handles:
+1. **🧠 Catalyst AI Engine** (`ai-assistant-core/`): The central component that manages AI model interactions, conversation history, and tool integrations. It handles:
    - LLM provider integrations (OpenAI, Claude, Groq)
    - Conversation management and context handling
    - Thread summarization for managing context windows
    - API endpoints for client applications
 
-2. **🔐 Locksmith** (`locksmith/`): Authentication and authorization service that provides:
+2. **🔐 auth_rbac_service** (`auth_rbac_service/`): Authentication and authorization service that provides:
    - Team-based Role-Based Access Control (RBAC)
    - Integration with Clerk authentication service
    - Data source access management
    - User permission management
 
-3. **⚙️ Wayne** (`wayne/`): Feature management and subscription service that handles:
+3. **⚙️ billing-payments-service** (`billing-payments-service/`): Feature management and subscription service that handles:
    - Feature flagging and management
    - Subscription handling via Paddle and Razorpay integration
    - User plan management
@@ -89,7 +89,7 @@ Enterprise AI Suite follows a microservices architecture with three main compone
 └───────┬───────────────────┬───────────────────────┬─────────┘
         │                   │                       │
 ┌───────▼───────┐   ┌───────▼───────┐       ┌───────▼───────┐
-│  Catalyst AI  │   │   Locksmith   │       │     Wayne     │
+│  Catalyst AI  │   │   auth_rbac_service   │       │     billing-payments-service     │
 │    Engine     │   │  RBAC System  │       │  Feature Mgmt │
 └───────┬───────┘   └───────────────┘       └───────────────┘
         │
@@ -104,12 +104,12 @@ Enterprise AI Suite follows a microservices architecture with three main compone
 
 ## 📁 Project Structure
 
-### 🧠 Catalyst AI (`catalyst_ai/`)
+### 🧠 Catalyst AI (`ai-assistant-core/`)
 
 The core AI engine with the following structure:
 
 ```
-catalyst_ai/
+ai-assistant-core/
 ├── config/          # Configuration files for different environments
 ├── utils/           # Utility functions and classes
 ├── mcp_configs/     # Multi-provider configuration management
@@ -126,12 +126,12 @@ catalyst_ai/
 - **`surface/`**: Interface adapters and utility functions for API versions
 - **`alembic/`**: Database migration scripts and environment configuration
 
-### 🔐 Locksmith (`locksmith/`)
+### 🔐 auth_rbac_service (`auth_rbac_service/`)
 
 Authentication and authorization service:
 
 ```
-locksmith/
+auth_rbac_service/
 ├── config/          # Environment-specific configurations
 ├── RBAC/            # Role-Based Access Control implementation
 │   ├── teams/       # Team management
@@ -147,12 +147,12 @@ locksmith/
 - **`app/`**: FastAPI application setup and core application logic
 - **`alembic/`**: Database migration scripts and environment configuration
 
-### ⚙️ Wayne (`wayne/`)
+### ⚙️ billing-payments-service (`billing-payments-service/`)
 
 Feature and subscription management:
 
 ```
-wayne/
+billing-payments-service/
 ├── config/          # Configuration files
 ├── features/        # Feature management
 ├── plans/           # Subscription plan management
@@ -230,8 +230,8 @@ docker-compose up -d
 
 This will start:
 - Catalyst AI on port 8081
-- Locksmith on port 8082
-- Wayne on port 8083
+- auth_rbac_service on port 8082
+- billing-payments-service on port 8083
 
 Then visit `http://localhost:8081` in your browser.
 
@@ -246,25 +246,25 @@ Then visit `http://localhost:8081` in your browser.
 2. **Install dependencies for all services**
    ```bash
    # Install Catalyst AI dependencies
-   pip install -r catalyst_ai/requirements/requirements.txt
+   pip install -r ai-assistant-core/requirements/requirements.txt
    
-   # Install Locksmith dependencies
-   pip install -r locksmith/requirements/requirements.txt
+   # Install auth_rbac_service dependencies
+   pip install -r auth-rbac-service/requirements/requirements.txt
    
-   # Install Wayne dependencies
-   pip install -r wayne/requirements/requirements.txt
+   # Install billing-payments-service dependencies
+   pip install -r billing-payments-service/requirements/requirements.txt
    ```
 
 3. **Create local configuration files**
    ```bash
    # Catalyst AI configuration
-   cp catalyst_ai/config/default.local.tmp.yaml catalyst_ai/config/default.local.yaml
+   cp ai-assistant-core/config/default.local.tmp.yaml ai-assistant-core/config/default.local.yaml
    
-   # Locksmith configuration
-   cp locksmith/config/default.local.tmp.yaml locksmith/config/default.local.yaml
+   # auth_rbac_service configuration
+   cp auth-rbac-service/config/default.local.tmp.yaml auth-rbac-service/config/default.local.yaml
    
-   # Wayne configuration
-   cp wayne/config/default.local.tmp.yaml wayne/config/default.local.yaml
+   # billing-payments-service configuration
+   cp billing-payments-service/config/default.local.tmp.yaml billing-payments-service/config/default.local.yaml
    ```
 
 4. **Update the configurations**
@@ -279,17 +279,17 @@ Then visit `http://localhost:8081` in your browser.
 
    ```bash
    # Catalyst AI setup
-   cd catalyst_ai
+   cd ai-assistant-core
    python startup.py --all
    cd ..
    
-   # Locksmith setup
-   cd locksmith
+   # auth_rbac_service setup
+   cd auth-rbac-service
    python startup.py --all
    cd ..
    
-   # Wayne setup
-   cd wayne
+   # billing-payments-service setup
+   cd billing-payments-service
    python startup.py --all
    cd ..
    ```
@@ -298,22 +298,22 @@ Then visit `http://localhost:8081` in your browser.
 
    ```bash
    # Terminal 1: Start Catalyst AI
-   cd catalyst_ai
+   cd ai-assistant-core
    python entrypoint.py
    
-   # Terminal 2: Start Locksmith
-   cd locksmith
+   # Terminal 2: Start auth_rbac_service
+   cd auth-rbac-service
    python entrypoint.py
    
-   # Terminal 3: Start Wayne
-   cd wayne
+   # Terminal 3: Start billing-payments-service
+   cd billing-payments-service
    python entrypoint.py
    ```
 
    The services will be available at:
    - Catalyst AI: http://localhost:8081
-   - Locksmith: http://localhost:8082
-   - Wayne: http://localhost:8083
+   - auth_rbac_service: http://localhost:8082
+   - billing-payments-service: http://localhost:8083
 
 > **💡 Tip:** For development environments, use the `--debug` flag when starting each service to enable hot reloading and detailed error messages.
 
@@ -330,9 +330,9 @@ To start specific services, use the `--profile` option with `docker-compose up`.
   docker-compose --profile catalyst up
   ```
 
-- **Start the Catalyst and Locksmith services:**
+- **Start the Catalyst and auth_rbac_service services:**
   ```bash
-  docker-compose --profile catalyst --profile locksmith up
+  docker-compose --profile catalyst --profile auth-rbac-service up
   ```
 
 - **Start all services:**
@@ -342,7 +342,7 @@ To start specific services, use the `--profile` option with `docker-compose up`.
 
 ## Managing Dependencies
 
-- The `catalyst` service depends on the `locksmith` service. Ensure to include the `locksmith` profile when starting `catalyst`.
+- The `catalyst` service depends on the `auth_rbac_service` service. Ensure to include the `auth_rbac_service` profile when starting `catalyst`.
 
 - If you encounter dependency issues, make sure all required services are included in the profiles you start.
 
@@ -371,13 +371,13 @@ You can also build and run individual Docker images:
 
 ```bash
 # Build Catalyst AI
-docker build -t catalyst ./catalyst_ai
+docker build -t catalyst ./ai-assistant-core
 
-# Build Locksmith
-docker build -t locksmith ./locksmith
+# Build auth_rbac_service
+docker build -t auth-rbac-service ./auth-rbac-service
 
-# Build Wayne
-docker build -t wayne ./wayne
+# Build billing-payments-service
+docker build -t billing-payments-service ./billing-payments-service
 
 # Run Catalyst AI
 docker run -p 8081:8081 \
@@ -420,7 +420,7 @@ git tag deploy.v1.0.0
 git push origin deploy.v1.0.0
 ```
 
-This will trigger the deployment pipeline defined in `catalyst_ai/azure-pipelines.yml`.
+This will trigger the deployment pipeline defined in `ai-assistant-core/azure-pipelines.yml`.
 
 ## ⚙️ Configuration
 
