@@ -23,6 +23,8 @@ from utils.connection_handler import execute_db_operation, ConnectionHandler
 from utils.stream_handler import StreamConfig, StreamHandlerFactory
 from utils.stream_strategy import StreamStrategyType
 
+from utils.common import MessageTransformer
+
 
 class SurfaceServiceV2:
     def __init__(self, connection_handler: ConnectionHandler = None):
@@ -69,7 +71,7 @@ class SurfaceServiceV2:
             first_message = surface_request.data["messages"][-1].get("firstMessage", False)
             thread_id = self.thread_id
 
-            surface_request.data["messages"] = await transform_messages_v2(
+            surface_request.data["messages"] = await MessageTransformer.transform_messages(
                 surface_request.data["messages"],
                 agent.llm.config.slug
             )
