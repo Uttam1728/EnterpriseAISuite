@@ -370,7 +370,7 @@ class UserDataHandler:
                     orgId=str(1),
                     firstName="Test",
                     lastName="User",
-                    email="ushankradadiya@gofynd.com",
+                    email="shubhamamande@gofynd.com",
                     username="test_user",
                     phoneNumber=None,  # Optional field
                     profilePicUrl=None,  # Optional field

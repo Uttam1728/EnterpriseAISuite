@@ -11,6 +11,8 @@ print(default_config_files)
 parser = configargparse.ArgParser(config_file_parser_class=configargparse.YAMLConfigFileParser,
                                   default_config_files=[default_config_files],
                                   auto_env_var_prefix="")
+
+
 parser.add('--app_name', help='app_name')
 parser.add('--use_dummy_user', help='use_dummy_user')
 parser.add('--env', help='env')
@@ -47,6 +49,7 @@ parser.add('--thread_summary_context_limit',
 parser.add('--use_thread_summaries', help='Enable or disable thread summary use in conversational agent.')
 parser.add('--clerk_secret_key', help='clerk_secret_key')
 parser.add('--kb_agent_enabled', help='kb_agent_enabled')
+parser.add('--base_prompt',help='base_prompt')
 
 arguments = sys.argv
 print(arguments)

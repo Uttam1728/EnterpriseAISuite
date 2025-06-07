@@ -80,5 +80,7 @@ class Settings(BaseSettings):
     # File paths
     BASE_DIR: str = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+    base_prompt_from_yaml:str = os.getenv('BASE_PROMPT',args.base_prompt)
+
 
 loaded_config = Settings()
