@@ -69,9 +69,9 @@ def get_app() -> FastAPI:
     # Configure CORS to allow only 'wmsz0.de'
     ai_assistant_core_app.add_middleware(
         CORSMiddleware,
-        # allow_origins=["*"],  # Only allow this origins
-        allow_origins=[],  # Only allow this origins
-        # allow_credentials=True,
+         allow_origins=["*"],  # Only allow this origins
+        #allow_origins=[],  # Only allow this origins
+         allow_credentials=True,
         allow_methods=["*"],  # Allows all methods
         allow_headers=["*"],  # Allows all headers
     )

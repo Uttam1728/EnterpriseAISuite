@@ -50,10 +50,57 @@ services:
     profiles:
       - billing_payments_service
 
+  open_chat_kit_ui:
+    build:
+      context: open_chat_kit_ui
+      dockerfile: Dockerfile
+      args:
+        - PORT=${PORT:-4000}
+        - ENV=${ENV:-production}
+        # Runtime environment variables
+        - REACT_APP_CLERK_PUBLISHABLE_KEY=dummykey
+        #- REACT_APP_LOGO_URL=-https://marketplace.canva.com/EAGUe-CYFgU/1/0/1600w/canva-grey-orange-modern-circle-class-logo-Aro9ea9TDP4.jpg
+        - REACT_APP_BRAND_NAME=Rimberio School
+        - REACT_APP_PROJECTS_LABEL=Projects
+        - REACT_APP_EDIT_PROJECTS_LABEL=DamnBoi
+        - REACT_APP_PROJECTS_ROUTE=project
+        - REACT_APP_ENABLE_PROJECTS=true
+        - REACT_APP_KNOWLEDGE_BASE_LABEL=KBs
+        - REACT_APP_EDIT_KNOWLEDGE_BASE_LABEL=Knowledge Base
+        - REACT_APP_KNOWLEDGE_BASE_ROUTE=knowledge
+        - REACT_APP_ENABLE_KNOWLEDGE_BASES=true
+        - REACT_APP_ENABLE_CHATS=true
+        - REACT_APP_CHAT_ROUTE=c
+        - REACT_APP_ENABLE_HISTORY=true
+        - REACT_APP_GOOGLE_ANALYTICS_ENABLE=true
+        - REACT_APP_GOOGLE_ANALYTICS_CODE=G-W9LZEK9WJR
+        - REACT_APP_BASE_CEREBRUM_URL=http://Shubham:8081/
+        - REACT_APP_BASE_LOCKSMIITH_URL=http://localhost:8082/
+        - REACT_APP_BASE_WAYNE_URL=http://localhost:8083/
+    ports:
+      - "4000:4000" # Map container's port 80 to host's port 4000
+    healthcheck:
+      test: [ "CMD", "node", "-e", "require('http').get('http://127.0.0.1:4000/_healthz', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) })" ]
+      interval: 30s
+      timeout: 3s
+      start_period: 5s
+      retries: 3
+    environment:
+        NODE_ENV: production
+    restart: unless-stopped
+    volumes:
+      - open_chat_kit_ui-repos:/srv/open_chat_kit_ui/repos
+    networks:
+      - app-network
+    profiles:
+      - open_chat_kit_ui
+
+
 volumes:
   ai_assistant_core-repos:
   billing_payments_service-repos:
   auth_rbac_service-repos:
+  open_chat_kit_ui-repos:
 
 networks:
   app-network:

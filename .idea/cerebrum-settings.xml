@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CerebrumSettings">
+    <option name="model">
+      <ModelSettings>
+        <option name="modelsEnabled">
+          <map>
+            <entry key="claude-3-5-sonnet-20240620">
+              <value>
+                <ModelDetail>
+                  <option name="acceptImage" value="true" />
+                  <option name="enabled" value="true" />
+                  <option name="name" value="Claude 3.5 Sonnet" />
+                  <option name="Name" value="Claude 3.5 Sonnet" />
+                  <option name="Enabled" value="true" />
+                  <option name="AcceptImage" value="true" />
+                </ModelDetail>
+              </value>
+            </entry>
+            <entry key="claude-3-opus-20240229">
+              <value>
+                <ModelDetail>
+                  <option name="acceptImage" value="true" />
+                  <option name="enabled" value="true" />
+                  <option name="name" value="Claude 3 Opus" />
+                  <option name="Name" value="Claude 3 Opus" />
+                  <option name="Enabled" value="true" />
+                  <option name="AcceptImage" value="true" />
+                </ModelDetail>
+              </value>
+            </entry>
+            <entry key="gpt-4o">
+              <value>
+                <ModelDetail>
+                  <option name="acceptImage" value="true" />
+                  <option name="enabled" value="true" />
+                  <option name="name" value="GPT-4o" />
+                  <option name="Name" value="GPT-4o" />
+                  <option name="Enabled" value="true" />
+                  <option name="AcceptImage" value="true" />
+                </ModelDetail>
+              </value>
+            </entry>
+            <entry key="gpt-4o-mini">
+              <value>
+                <ModelDetail>
+                  <option name="enabled" value="true" />
+                  <option name="name" value="GPT-4o mini" />
+                  <option name="Name" value="GPT-4o mini" />
+                  <option name="Enabled" value="true" />
+                </ModelDetail>
+              </value>
+            </entry>
+            <entry key="gpt-o1">
+              <value>
+                <ModelDetail>
+                  <option name="enabled" value="true" />
+                  <option name="name" value="o1" />
+                  <option name="Name" value="o1" />
+                  <option name="Enabled" value="true" />
+                </ModelDetail>
+              </value>
+            </entry>
+            <entry key="gpt-o1-mini">
+              <value>
+                <ModelDetail>
+                  <option name="enabled" value="true" />
+                  <option name="name" value="o1-mini" />
+                  <option name="Name" value="o1-mini" />
+                  <option name="Enabled" value="true" />
+                </ModelDetail>
+              </value>
+            </entry>
+            <entry key="gpt-o1-preview">
+              <value>
+                <ModelDetail>
+                  <option name="enabled" value="true" />
+                  <option name="name" value="o1-preview" />
+                  <option name="Name" value="o1-preview" />
+                  <option name="Enabled" value="true" />
+                </ModelDetail>
+              </value>
+            </entry>
+          </map>
+        </option>
+      </ModelSettings>
+    </option>
+  </component>
+</project>

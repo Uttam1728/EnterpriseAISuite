@@ -2,7 +2,8 @@ from string import Template
 
 from config.settings import loaded_config
 
-conversation_base_prompt = f"""You are an AI assistant Named {loaded_config.app_name} that helps people find information."""
+conversation_base_prompt = loaded_config.base_prompt_from_yaml
+
 
 generate_conversation_summary_prompt = """
 Your another task is to analyze the current user conversation and generate a summary of the interaction.
